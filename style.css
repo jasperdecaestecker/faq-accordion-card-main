@@ -1,0 +1,169 @@
+:root {
+  --color-dark-desaturated-blue: hsl(238, 29%, 16%);
+  --color-soft-red: hsl(14, 88%, 65%);
+  --color-gradient-soft-violet: hsl(273, 75%, 66%);
+  --color-gradient-soft-blue: hsl(240, 73%, 65%);
+  --color-very-dark-greyish-blue: hsl(237, 12%, 33%);
+  --color-dark-grayish-blue: hsl(240, 6%, 50%);
+  --color-light-gray-blue: hsl(240, 5%, 91%);
+}
+
+/* reset css */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Kumbh Sans', sans-serif;
+  font-weight: 400;
+  font-size: 12px;
+  background: linear-gradient(
+    var(--color-gradient-soft-violet),
+    var(--color-gradient-soft-blue)
+  );
+  color: var(--color-dark-desaturated-blue);
+}
+
+@media (max-width: 990px) {
+  body .container {
+    max-width: 1024px;
+  }
+
+  body .card {
+    max-width: 760px;
+  }
+
+  body .card > div:nth-child(2) {
+    padding: 90px 20px;
+  }
+}
+
+/* @media (max-width: 860px) {
+  body .container {
+    max-width: 95%;
+    height: auto;
+  }
+
+  body .card {
+    max-width: 100%;
+    grid-template-columns: 1fr;
+  }
+
+  body .card > div:nth-child(2) {
+    padding: 90px 20px;
+  }
+
+  body .card .card__image {
+    background: url('images/illustration-woman-online-mobile.svg'),
+      url('images/bg-pattern-mobile.svg');
+    background-repeat: no-repeat, no-repeat;
+    background-position: 0px;
+    height: 276px;
+    position: relative;
+  }
+
+  body .card .card__image img {
+    display: none;
+  }
+} */
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 1440px;
+  margin: auto;
+  height: 100vh;
+}
+
+.card {
+  background-color: white;
+  border-radius: 16px;
+  box-shadow: 0 8px 32px 4px rgb(0 0 0 / 20%);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  max-width: 880px;
+}
+
+.card h1 {
+  font-size: 1.8rem;
+  margin-bottom: 40px;
+  font-weight: 700;
+}
+
+.card > div:nth-child(2) {
+  padding: 90px 50px;
+}
+
+.card .card__image {
+  background: url('images/illustration-woman-online-desktop.svg'),
+    url('images/bg-pattern-desktop.svg');
+  background-repeat: no-repeat, no-repeat;
+  background-position: -90px, -584px -260px;
+  height: 530px;
+  position: relative;
+}
+
+.card .card__image img {
+  position: absolute;
+  left: -93px;
+  top: 218px;
+}
+
+ul.collapse__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+ul.collapse__list li {
+  border-bottom: 1px solid var(--color-light-gray-blue);
+  padding: 12px 0;
+  position: relative;
+}
+
+.collapse__list label {
+  cursor: pointer;
+  color: var(--color-dark-desaturated-blue);
+  font-size: 0.9rem;
+}
+
+.collapse__list label:hover {
+  color: var(--color-soft-red);
+}
+
+.collapse__list label::after {
+  content: url('./images/icon-arrow-down.svg');
+  position: absolute;
+  right: 10px;
+}
+
+input[type='checkbox'] {
+  position: absolute;
+  left: -9999px;
+}
+
+input[type='checkbox'] ~ div.collapseable {
+  height: 0;
+  transform: scaleY(0);
+  color: var(--color-dark-grayish-blue);
+}
+
+input[type='checkbox']:checked ~ div.collapseable {
+  height: 100%;
+  transform-origin: top;
+  padding: 20px 70px 0 0;
+  transform: scaleY(1);
+}
+
+input[type='checkbox']:checked + label::after {
+  transform: scaleY(-1);
+}
+
+input[type='checkbox']:checked + label {
+  font-weight: 700;
+}
